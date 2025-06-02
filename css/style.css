@@ -1,7 +1,14 @@
 :root {
-    --primary-color: #681212;
-    --ripple-color: rgba(142, 74, 74, 0.5);
+    --primary-text-color: #333;
+    --secondary-text-color: #666;
+    --accent-color: #007bff;
+    --background-color: #f8f9fa;
+    --card-background-color: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --ripple-color: rgba(0, 123, 255, 0.2);
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,77 +16,174 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    padding: 20px;
-    background: #f0f0f0; 
+    color: var(--primary-text-color);
+    background-color: var(--background-color);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
 }
+
 .resume-container {
-    max-width: 1000px;
-    margin: 0 auto; 
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    background: var(--card-background-color);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border-radius: 12px;
+    padding: 40px;
     position: relative;
+    overflow: hidden;
 }
-.resume {
-    margin-bottom: 5px;
-}
-header {
+
+header.header {
     text-align: center;
     margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
 }
+
 .name {
-    font-size: 2.5em;
+    font-size: 2.8em;
+    color: var(--primary-text-color);
     margin-bottom: 10px;
-    color: #333;
-    transition: all 0.3s;
+    font-weight: 700;
+    line-height: 1.2;
+    transition: color 0.3s ease;
 }
+
 .contacts p {
+    font-size: 1.1em;
+    color: var(--secondary-text-color);
     margin: 5px 0;
-    color: #666;
 }
-.section {
-    margin: 25px 0;
+
+section.section {
+    margin-bottom: 30px;
 }
+
 .section-title {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 5px;
+    font-size: 1.8em;
+    color: var(--accent-color);
     margin-bottom: 15px;
-    font-size: 1.5em;
-    transition: all 0.3s;
+    font-weight: 600;
+    padding-left: 10px;
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.3s ease;
 }
 
 .content {
-    padding-left: 20px;
+    padding-left: 15px;
+    border-left: 1px solid var(--border-color);
+    margin-left: 5px;
 }
+
+.content p {
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+}
+
+.content p strong {
+    color: var(--primary-text-color);
+    font-weight: 600;
+}
+
 .editable {
-    border: 1px solid transparent;
-    border-radius: 4px;
-    padding: 2px;
-    transition: all 0.3s ease;
-}
-.editable:focus {
-    border-color: var(--primary-color);
     outline: none;
-    background: #f8f9fa;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 5px 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+.editable:hover {
+    background-color: #f0f0f0;
+}
+
+.editable:focus {
+    border-color: var(--accent-color);
+    background-color: #f8f9fa;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
 .download-btn {
-    background: var(--primary-color);
+    background-color: var(--accent-color);
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 4px;
+    padding: 14px 30px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    font-weight: 600;
     display: block;
-    margin: 20px auto 10px auto;
+    width: fit-content;
+    margin: 30px auto 0 auto;
     position: relative;
     overflow: hidden;
-    transition: background 0.3s;
+    transition: background-color 0.3s ease, transform 0.1s ease;
 }
+
 .download-btn:hover {
-    background: #a02020;
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.download-btn:active {
+    background-color: #004085;
+    transform: translateY(0);
+}
+
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    background-color: var(--ripple-color);
+    z-index: 2;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+    .resume-container {
+        padding: 25px 20px;
+    }
+    .name {
+        font-size: 2.2em;
+    }
+    .section-title {
+        font-size: 1.6em;
+    }
+    .download-btn {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .name {
+        font-size: 1.8em;
+    }
+    .contacts p {
+        font-size: 1em;
+    }
+    .section-title {
+        font-size: 1.4em;
+    }
+    .content {
+        padding-left: 10px;
+        margin-left: 0;
+        border-left: none;
+    }
 }
