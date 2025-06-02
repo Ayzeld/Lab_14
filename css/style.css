@@ -8,13 +8,11 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
     --ripple-color: rgba(0, 123, 255, 0.2);
 }
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 body {
     font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
@@ -26,7 +24,6 @@ body {
     align-items: flex-start;
     min-height: 100vh;
 }
-
 .resume-container {
     max-width: 900px;
     width: 100%;
@@ -37,14 +34,12 @@ body {
     position: relative;
     overflow: hidden;
 }
-
 header.header {
     text-align: center;
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
 }
-
 .name {
     font-size: 2.8em;
     color: var(--primary-text-color);
@@ -53,17 +48,14 @@ header.header {
     line-height: 1.2;
     transition: color 0.3s ease;
 }
-
 .contacts p {
     font-size: 1.1em;
     color: var(--secondary-text-color);
     margin: 5px 0;
 }
-
 section.section {
     margin-bottom: 30px;
 }
-
 .section-title {
     font-size: 1.8em;
     color: var(--accent-color);
@@ -73,23 +65,19 @@ section.section {
     border-left: 4px solid var(--accent-color);
     transition: all 0.3s ease;
 }
-
 .content {
     padding-left: 15px;
     border-left: 1px solid var(--border-color);
     margin-left: 5px;
 }
-
 .content p {
     margin-bottom: 10px;
     color: var(--primary-text-color);
 }
-
 .content p strong {
     color: var(--primary-text-color);
     font-weight: 600;
 }
-
 .editable {
     outline: none;
     border: 1px solid transparent;
@@ -97,17 +85,14 @@ section.section {
     padding: 5px 8px;
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
 .editable:hover {
     background-color: #f0f0f0;
 }
-
 .editable:focus {
     border-color: var(--accent-color);
     background-color: #f8f9fa;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
-
 .download-btn {
     background-color: var(--accent-color);
     color: white;
@@ -124,17 +109,14 @@ section.section {
     overflow: hidden;
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
-
 .download-btn:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
 }
-
 .download-btn:active {
     background-color: #004085;
     transform: translateY(0);
 }
-
 .ripple-effect {
     position: absolute;
     border-radius: 50%;
@@ -144,14 +126,12 @@ section.section {
     z-index: 2;
     pointer-events: none;
 }
-
 @keyframes ripple {
     to {
         transform: scale(4);
         opacity: 0;
     }
 }
-
 @media (max-width: 768px) {
     body {
         padding: 20px 10px;
@@ -170,7 +150,6 @@ section.section {
         padding: 12px 25px;
     }
 }
-
 @media (max-width: 480px) {
     .name {
         font-size: 1.8em;
